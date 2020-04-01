@@ -1,3 +1,6 @@
+/**
+ * @param {object} dna binaries representative of each nucleic acid
+ */
 const dna: { [keys: string]: string } = {
   A: '00',
   T: '01',
@@ -5,6 +8,11 @@ const dna: { [keys: string]: string } = {
   G: '11',
 };
 
+/**
+ *
+ * @param {string} data input data in form of binaries string (0 or 1)
+ * @returns nucleotide sequences string
+ */
 const binToDna = (data: string): string => {
   const dnaArr = Object.keys(dna);
   return data
@@ -15,6 +23,11 @@ const binToDna = (data: string): string => {
     .join('');
 };
 
+/**
+ *
+ * @param {string} data input datain form of nucleotide sequences string (A, T, C or G)
+ * @returns binaries string
+ */
 const dnaToBin = (data: string): string => {
   return data
     .split('')

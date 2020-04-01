@@ -51,8 +51,8 @@ const createNotesObject = (): { [keys: string]: string } => {
 
 /**
  *
- * @param min lowest octave (from middle c)
- * @param max highest octave (from middle c)
+ * @param {number} min lowest octave (from middle c)
+ * @param {number} max highest octave (from middle c)
  * @returns {object} Binaries representative for each octave
  */
 const createOctavesObject = (
@@ -76,4 +76,25 @@ const createOctavesObject = (
   return createObject(octavesArr, octavesBin);
 };
 
-export { createNotesObject, createOctavesObject };
+/**
+ * @returns
+ */
+const createToolsObject = () => {
+  /*
+  16-12 -> 4 unused stages
+  1100, 1101, 1110, 1111
+  */
+
+  let tools: { [keys: string]: string } = {
+    H: '1100',
+  };
+
+  Array.from(Array(4).keys()).forEach((x: number) => {
+    const head = '1111';
+    tools[`R${x}`] = head + x.toString(2).padStart(2, '0');
+  });
+
+  return tools;
+};
+
+export { createNotesObject, createOctavesObject, createToolsObject };

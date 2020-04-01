@@ -15,8 +15,8 @@ describe('Create Notes Object', () => {
 
 describe('Create Octaves Object', () => {
   it('should return the right data set', () => {
-    const result = createOctavesObject(-2, 1);
-    expect(result['-2']).to.equal('00');
-    expect(result['1']).to.equal('11');
+    const result = createOctavesObject(2, 5);
+    expect(result['2']).to.equal('00');
+    expect(result['5']).to.equal('11');
   });
 });
