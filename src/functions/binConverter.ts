@@ -1,4 +1,4 @@
-const dna = {
+const dna: { [keys: string]: string } = {
   A: '00',
   T: '01',
   C: '10',
