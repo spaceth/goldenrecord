@@ -1,4 +1,12 @@
-const createObject = (keys: any[], value: any[]): any => {
+/**
+ *
+ * @param keys array that should be used as an object's key
+ * @param value array that should be used as an object's value
+ */
+const createObject = (
+  keys: string[] | number[],
+  value: any[],
+): any => {
   let result = {};
   keys.forEach(
     (key: string | number, i: number) => (result[key] = value[i]),
@@ -6,7 +14,13 @@ const createObject = (keys: any[], value: any[]): any => {
   return result;
 };
 
-const createNotesObject = () => {
+/**
+ * @returns {object} Keys: pitch, Value: binaries representative
+ */
+const createNotesObject = (): { [keys: string]: string } => {
+  /**
+   * @param {Array} noteArr chromatic scale pitch
+   */
   const notesArr: string[] = [
     'C',
     'C#',
@@ -35,6 +49,12 @@ const createNotesObject = () => {
   return createObject(notesArr, notesBin);
 };
 
+/**
+ *
+ * @param min lowest octave (from middle c)
+ * @param max highest octave (from middle c)
+ * @returns {object} Binaries representative for each octave
+ */
 const createOctavesObject = (
   min: number,
   max: number,
@@ -53,7 +73,6 @@ const createOctavesObject = (
       return x.toString(2).padStart(binRequired, '0');
     },
   );
-
   return createObject(octavesArr, octavesBin);
 };
 

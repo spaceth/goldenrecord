@@ -1,2 +1,3 @@
 # Golden Record
-may the force be with you :)
+i'll be back.
+T800 - the terminator (1984) 
