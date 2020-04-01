@@ -4,6 +4,8 @@ import {
   createToolsObject,
 } from './createMusicObject';
 
+import { musicCompressor } from './musicCompressor';
+
 const notesObject = createNotesObject();
 const octavesObject = createOctavesObject(2, 5);
 const tools = createToolsObject();
@@ -17,6 +19,7 @@ const tools = createToolsObject();
  */
 const musicToBin = (data: string) => {
   const toolsName = Object.keys(tools);
+  // const compresseddData = musicCompressor(data)
   let binaries = data
     .split('-')
     .map((x: string) => {

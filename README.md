@@ -1,3 +1,3 @@
 # Golden Record
-i'll be back.
-T800 - the terminator (1984) 
+open the pod bay doors, hal.
+david bowman - 2001: a space odyssey (1968) 

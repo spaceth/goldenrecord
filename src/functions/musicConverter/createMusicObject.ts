@@ -62,22 +62,20 @@ const createOctavesObject = (
   const range = Math.abs(max - min) + 1;
   const binRequired = Math.ceil(Math.sqrt(range));
 
-  const octavesArr: number[] = Array.from(Array(range).keys()).map(
-    (x: number) => {
-      return x + min;
-    },
-  );
+  const arr = Array.from(Array(range).keys());
 
-  const octavesBin: string[] = Array.from(Array(range).keys()).map(
-    (x: number) => {
-      return x.toString(2).padStart(binRequired, '0');
-    },
-  );
+  const octavesArr: number[] = arr.map((x: number) => {
+    return x + min;
+  });
+
+  const octavesBin: string[] = arr.map((x: number) => {
+    return x.toString(2).padStart(binRequired, '0');
+  });
   return createObject(octavesArr, octavesBin);
 };
 
 /**
- * @returns
+ * @returns tools for
  */
 const createToolsObject = () => {
   /*
@@ -87,6 +85,8 @@ const createToolsObject = () => {
 
   let tools: { [keys: string]: string } = {
     H: '1100',
+    B: '1101',
+    C: '1110',
   };
 
   Array.from(Array(4).keys()).forEach((x: number) => {
