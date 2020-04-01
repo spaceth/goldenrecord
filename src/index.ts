@@ -1,1 +1,1 @@
-import { dnaToBin, binToDna } from './functions/typeConverter';
+import { dnaToBin, binToDna } from './functions/binConverter';
