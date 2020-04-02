@@ -9,7 +9,7 @@ const toolsKeys = Object.keys(toolsObject);
  * @returns {string} uncompresssed music data
  */
 const musicUncompressor = (data: string): string => {
-  console.log('/* uncompressing music */');
+  console.log('\n/* uncompressing music */');
   const keysObject: {
     [keys: string]: [string, boolean];
   } = toolsKeys

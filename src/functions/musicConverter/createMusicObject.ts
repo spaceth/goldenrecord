@@ -76,9 +76,6 @@ const createOctavesObject = (
   return createObject(octavesArr, octavesBin);
 };
 
-/**
- * @returns tools for
- */
 const createToolsObject = () => {
   /*
   16-12 -> 4 unused stages
@@ -88,9 +85,7 @@ const createToolsObject = () => {
   /* TEMPORARY, I HOPE HOPE HOPE */
 
   let tools: { [keys: string]: string } = {
-    H0: '1100',
-    B: '1101',
-    C: '1110',
+    H0: '110000',
   };
 
   Array.from(Array(4).keys()).forEach((x: number) => {
