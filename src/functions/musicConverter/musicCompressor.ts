@@ -20,7 +20,7 @@ const findSequence = (data: string): string[] => {
     let strMap: Map<string, Array<number>> = new Map();
     let numMap: Map<number, Array<string>> = new Map();
     for (j = 0; j < data.length - i + 1; j += 3) {
-      let str = data.substr(j, i);
+      let str: string = data.substr(j, i);
       if (!strMap.has(str)) {
         strMap.set(str, [1, j]);
         // console.log('new key', str, strMap.get(str));
@@ -33,8 +33,8 @@ const findSequence = (data: string): string[] => {
       }
     }
 
-    strMap.forEach((valueArr, key) => {
-      const value = valueArr[0];
+    strMap.forEach((valueArr: number[], key: string) => {
+      const value: number = valueArr[0];
       if (value >= max) {
         max = value;
         if (!numMap.has(value)) {
@@ -56,8 +56,8 @@ const findSequence = (data: string): string[] => {
     }
   }
 
-  const compressLength = same.map(x => x[0]);
-  const indexOfMin = compressLength.indexOf(
+  const compressLength: number[] = same.map(x => x[0]);
+  const indexOfMin: number = compressLength.indexOf(
     Math.min(...compressLength),
   );
   const minString: string[] = same.map(x => x[1])[indexOfMin];
@@ -98,6 +98,7 @@ const musicCompressor = (data: string): string => {
   );
   console.log('/* compressing music */');
   keys.forEach((x: string) => (data = transformString(data, x)));
+  console.log('compressed: ', data);
   console.log('/* done */ \n');
   return data;
 };

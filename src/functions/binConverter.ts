@@ -1,3 +1,8 @@
+/*
+Carl: The pale blue dot, the only home we've ever known.
+Elon: Mars!
+*/
+
 /**
  * @param {object} dna binaries representative of each nucleic acid
  */

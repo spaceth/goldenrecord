@@ -2,6 +2,7 @@ import {
   createNotesObject,
   createOctavesObject,
 } from '../src/functions/musicConverter/createMusicObject';
+
 import { expect } from 'chai';
 import 'mocha';
 

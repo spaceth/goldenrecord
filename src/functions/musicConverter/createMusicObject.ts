@@ -1,3 +1,5 @@
+/* HELLO THERE */
+
 /**
  *
  * @param keys array that should be used as an object's key
@@ -83,6 +85,8 @@ const createToolsObject = () => {
   1100, 1101, 1110, 1111
   */
 
+  /* TEMPORARY, I HOPE HOPE HOPE */
+
   let tools: { [keys: string]: string } = {
     H0: '1100',
     B: '1101',
@@ -98,3 +102,5 @@ const createToolsObject = () => {
 };
 
 export { createNotesObject, createOctavesObject, createToolsObject };
+
+/* GOODBYE. COME AGAIN SOON. */
