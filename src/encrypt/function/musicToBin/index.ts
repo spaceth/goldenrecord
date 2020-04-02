@@ -2,9 +2,9 @@ import {
   createNotesObject,
   createOctavesObject,
   createToolsObject,
-} from '../../function/createMusicObject';
+} from '../../../function/createMusicObject';
 
-import { musicCompressor } from '../../encrypt/function/musicCompressor';
+import { musicCompressor } from './musicCompressor';
 
 const notesObject: { [keys: string]: string } = createNotesObject();
 const octavesObject: { [keys: string]: string } = createOctavesObject(

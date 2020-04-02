@@ -2,9 +2,9 @@ import {
   createNotesObject,
   createOctavesObject,
   createToolsObject,
-} from '../../function/createMusicObject';
+} from '../../../function/createMusicObject';
 
-import { musicUncompressor } from '../../decrypt/function/musicUncompressor';
+import { musicUncompressor } from './musicUncompressor';
 
 const notesObject: { [keys: string]: string } = createNotesObject();
 const octavesObject: { [keys: string]: string } = createOctavesObject(
@@ -15,9 +15,9 @@ const toolsObject: { [keys: string]: string } = createToolsObject();
 
 /* BEAM ME UP, SCOTTY */
 const binToMusic = (data: string): string => {
-  let notesMap = new Map();
-  let octavesMap = new Map();
-  let toolsMap = new Map();
+  let notesMap: Map<string, string> = new Map();
+  let octavesMap: Map<string, string> = new Map();
+  let toolsMap: Map<string, string> = new Map();
 
   for (let [key, value] of Object.entries(notesObject)) {
     notesMap.set(value, key);

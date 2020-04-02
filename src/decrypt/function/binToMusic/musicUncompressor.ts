@@ -1,4 +1,4 @@
-import { createToolsObject } from '../../function/createMusicObject';
+import { createToolsObject } from '../../../function/createMusicObject';
 
 const toolsObject = createToolsObject();
 const toolsKeys = Object.keys(toolsObject);

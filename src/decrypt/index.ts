@@ -1,5 +1,5 @@
 import { dnaToBin } from './function/dnaToBin';
-import { binToMusic } from './function/binToMusic';
+import { binToMusic } from './function/binToMusic/index';
 
 const decryptor = (data: string): string => {
   console.log('input: ', data, '\n');

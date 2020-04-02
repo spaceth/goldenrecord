@@ -1,4 +1,4 @@
-import { musicToBin } from './function/musicToBin';
+import { musicToBin } from './function/musicToBin/index';
 import { binToDna } from './function/binToDna';
 
 /**

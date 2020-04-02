@@ -21,6 +21,7 @@
   },
   "scripts": {
     "start": "ts-node src/index.ts",
+    "build": "rm -rf dist && tsc",
     "test": "mocha -r ts-node/register test/**/*.spec.ts"
   }
 }

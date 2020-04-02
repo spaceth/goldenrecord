@@ -14,7 +14,7 @@ const binToDna = (data: string): string => {
   const dnaArr = Object.keys(dna);
   return data
     .match(/../g)
-    .map((x: string) => {
+    .map((x: string): string => {
       return dnaArr[parseInt(x, 2)];
     })
     .join('');

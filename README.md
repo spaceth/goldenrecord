@@ -1,3 +1,2 @@
 # Golden Record
-open the pod bay doors, hal.
-david bowman - 2001: a space odyssey (1968) 
+“It's too bad she won't live. But then again, who does?”
