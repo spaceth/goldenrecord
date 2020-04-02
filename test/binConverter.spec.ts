@@ -1,4 +1,6 @@
-import { binToDna, dnaToBin } from '../src/functions/binConverter';
+import { binToDna } from '../src/encrypt/function/binToDna';
+import { dnaToBin } from '../src/decrypt/function/dnaToBin';
+
 import { expect } from 'chai';
 import 'mocha';
 

@@ -2,10 +2,9 @@ import {
   createNotesObject,
   createOctavesObject,
   createToolsObject,
-} from './createMusicObject';
+} from '../../function/createMusicObject';
 
-import { musicCompressor } from './musicCompressor';
-import { musicUncompressor } from './musicUncompressor';
+import { musicUncompressor } from '../../decrypt/function/musicUncompressor';
 
 const notesObject: { [keys: string]: string } = createNotesObject();
 const octavesObject: { [keys: string]: string } = createOctavesObject(
@@ -13,53 +12,6 @@ const octavesObject: { [keys: string]: string } = createOctavesObject(
   5,
 );
 const toolsObject: { [keys: string]: string } = createToolsObject();
-
-const notesKeys: string[] = Object.keys(notesObject);
-const octavesKeys: string[] = Object.keys(octavesObject);
-const toolsKeys: string[] = Object.keys(toolsObject);
-
-const checker = (data: string): boolean => {
-  const arr = data.split('-').filter((x: string): boolean => {
-    return (
-      notesKeys.indexOf(x[0]) === -1 &&
-      octavesKeys.indexOf(x[1]) === -1 &&
-      toolsKeys.indexOf(x) === -1
-    );
-  });
-  if (arr.length === 0) {
-    return true;
-  } else {
-    console.log('error', arr);
-    return false;
-  }
-};
-
-/**
- *
- * @param {string} data input data in form of music pitches string (note-octave)
- * ex. R0-E4-G4-F4-H-G4-C4-H-G4-D4-A4-G4-F4-D4-R0
- * H for Hold
- * R0 for repeat no. 0
- */
-const musicToBin = (data: string): string => {
-  if (checker(data)) {
-    data = musicCompressor(data);
-    const binaries: string = data
-      .split('-')
-      .map((x: string): string => {
-        if (!toolsKeys.includes(x)) {
-          const [note, octave] = x.split('');
-          const set = notesObject[note] + octavesObject[octave];
-          return set;
-        } else {
-          return toolsObject[x];
-        }
-      })
-      .join('');
-    return binaries;
-  }
-  return 'error';
-};
 
 /* BEAM ME UP, SCOTTY */
 const binToMusic = (data: string): string => {
@@ -77,6 +29,7 @@ const binToMusic = (data: string): string => {
     toolsMap.set(value, key);
   }
 
+  console.log(data);
   data = data
     .match(/....../g)
     .map((x: string) => {
@@ -112,4 +65,4 @@ const binToMusic = (data: string): string => {
   return data;
 };
 
-export { musicToBin, binToMusic };
+export { binToMusic };

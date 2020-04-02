@@ -1,5 +1,5 @@
-import { musicCompressor } from '../src/functions/musicConverter/musicCompressor';
-import { musicUncompressor } from '../src/functions/musicConverter/musicUncompressor';
+import { musicCompressor } from '../src/encrypt/function/musicCompressor';
+import { musicUncompressor } from '../src/decrypt/function/musicUncompressor';
 
 import { expect } from 'chai';
 import 'mocha';

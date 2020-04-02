@@ -1,4 +1,4 @@
-import { createToolsObject } from './createMusicObject';
+import { createToolsObject } from '../../function/createMusicObject';
 
 const toolsObject = createToolsObject();
 const toolsKeys = Object.keys(toolsObject);
@@ -9,7 +9,7 @@ const toolsKeys = Object.keys(toolsObject);
  * @returns {string} uncompresssed music data
  */
 const musicUncompressor = (data: string): string => {
-  console.log('\n/* uncompressing music */');
+  console.log('\n🔑 Uncompressing Music');
   const keysObject: {
     [keys: string]: [string, boolean];
   } = toolsKeys
@@ -37,8 +37,8 @@ const musicUncompressor = (data: string): string => {
     })
     .join('')
     .slice(0, -1);
-  console.log('uncompressed: ', data);
-  console.log('/*done*/\n');
+  console.log('Uncompressed: ', data);
+  console.log('🔓 Done!\n');
   // console.log(keysObject);
   return data;
 };

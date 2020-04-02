@@ -1,4 +1,5 @@
-import { createToolsObject } from './createMusicObject';
+import { createToolsObject } from '../../function/createMusicObject';
+
 /**
  *
  * @param {string} data input data in form of music pitches string (note-octave)
@@ -96,10 +97,10 @@ const musicCompressor = (data: string): string => {
   const keys: string[] = Object.keys(tools).filter(
     (x: string) => x.indexOf('R') !== -1,
   );
-  console.log('/* compressing music */');
+  console.log('🔑 Compressing Music');
   keys.forEach((x: string) => (data = transformString(data, x)));
-  console.log('compressed: ', data);
-  console.log('/* done */ \n');
+  console.log('Compressed: ', data);
+  console.log('🔒 Done!\n');
   return data;
 };
 
