@@ -1,9 +1,10 @@
+import { createToolsObject } from './createMusicObject';
 /**
  *
  * @param {string} data input data in form of music pitches string (note-octave)
  * @return {string} best substring sequence
  */
-const findSequence = (data: string): string => {
+const findSequence = (data: string): string[] => {
   let i: number;
   let j: number;
   let same: any = [];
@@ -59,53 +60,46 @@ const findSequence = (data: string): string => {
   const indexOfMin = compressLength.indexOf(
     Math.min(...compressLength),
   );
-  const minString: string = same.map(x => x[1])[indexOfMin];
+  const minString: string[] = same.map(x => x[1])[indexOfMin];
+  //console.log(same.map(x => x[1]));
 
   return minString;
 };
 
-// TODO: rewrite this mess omg
-
-const transformString = (data: string): string => {
-  data = data + '-';
-  let subSequence: string = findSequence(data);
-  console.log(subSequence);
-  let loc = data.indexOf(subSequence);
-  data = [
-    'R0-' +
-      data.slice(loc, loc + subSequence.length + 1) +
-      'R0-' +
-      data.slice(loc + subSequence.length),
-  ].join();
-  console.log(loc, data);
-  loc = data.indexOf(subSequence, loc + 4);
-  while (loc !== -1) {
-    //console.log(loc);
-    data = [
-      data.slice(0, loc - 1) +
-        'R0-' +
-        data.slice(loc + subSequence.length),
-    ].join('');
-    //console.log(data);
-    loc = data.indexOf(subSequence, loc + 1);
+/**
+ *
+ * @param {string} data input data in form of music pitches string (note-octave)
+ * @param {string} key replacement key
+ */
+const transformString = (data: string, key: string): string => {
+  console.log('key:', key);
+  if (findSequence(data)) {
+    data = data + '-';
+    key = key + '-';
+    const subSequence: string = findSequence(data)[0] + '-';
+    console.log('subsequence:', subSequence);
+    data = data.replace(subSequence, key + '.' + key);
+    while (data.indexOf(subSequence) !== -1) {
+      data = data.replace(subSequence, key);
+    }
+    data = data.replace('.', subSequence);
+    data = data.slice(0, -1);
+    console.log('result', data);
+    return data;
   }
-  data = data.slice(0, -2);
-  console.log(data);
+  console.log('break: subsequences not found');
   return data;
 };
 
 const musicCompressor = (data: string): string => {
-  let i: number;
-  for (i = 0; i < 4; i++) {
-    data = transformString(data);
-  }
+  const tools: { [keys: string]: string } = createToolsObject();
+  const keys: string[] = Object.keys(tools).filter(
+    (x: string) => x.indexOf('R') !== -1,
+  );
+  console.log('/* compressing music */');
+  keys.forEach((x: string) => (data = transformString(data, x)));
+  console.log('/* done */ \n');
   return data;
 };
-
-console.log(
-  musicCompressor(
-    'E4-G4-F4-H0-G4-C4-H0-G4-D4-A4-G4-F4-D4-E4-G4-F4-H0-G4-C4-H0-G4-D4-A4-G4-F4-D4-E4-G4-F4-H0-G4-C4-H0-G4-D4-A4-G4-F4-D4-E4-G4-F4-H0-G4-C4-H0-G4-D4-A4-G4-F4-D4',
-  ),
-);
 
 export { musicCompressor };

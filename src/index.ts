@@ -1,19 +1,31 @@
 import { dnaToBin, binToDna } from './functions/binConverter';
 import { musicToBin, binToMusic } from './functions/musicConverter';
 
-console.log('input: R0-E4-G4-F4-H-G4-C4-H-G4-D4-A4-G4-F4-D4-R0');
+const music =
+  'E4-G4-F4-H0-G4-C4-H0-G4-D4-A4-G4-F4-D4-E4-G4-F4-H0-G4-C4-H0-G4-D4-A4-G4-F4-D4-E4-G4-F4-H0-G4-C4-H0-G4-D4-A4-G4-F4-D4-E4-G4-F4-H0-G4-C4-H0-G4-D4-A4-G4-F4-D4';
 
-console.log();
+const encryptor = (data: string) => {
+  console.log('/*begin*/');
+  console.log('input: ', data, '\n');
+  const bin = musicToBin(data, true);
+  const nt = binToDna(bin);
+  console.log('/*convert to binaries*/');
+  console.log('binaries: ', bin, '\n');
+  console.log('/*convert to nt*/');
+  console.log('nucleotides: ', nt, '\n');
+  console.log('/*final result*/');
+  console.log(nt);
+  console.log('length:', nt.length);
+  console.log(
+    'A:',
+    (nt.match(/A/g) || []).length,
+    ' T:',
+    (nt.match(/T/g) || []).length,
+    ' C:',
+    (nt.match(/C/g) || []).length,
+    ' G:',
+    (nt.match(/G/g) || []).length,
+  );
+};
 
-console.log(
-  `to binaries: ${musicToBin(
-    'R0-E4-G4-F4-H-G4-C4-H-G4-D4-A4-G4-F4-D4-R0',
-  )}`,
-);
-console.log();
-
-console.log(
-  `to nucleotide sequence: ${binToDna(
-    musicToBin('R0-E4-G4-F4-H-G4-C4-H-G4-D4-A4-G4-F4-D4-R0'),
-  )}`,
-);
+console.log(encryptor(music));

@@ -84,7 +84,7 @@ const createToolsObject = () => {
   */
 
   let tools: { [keys: string]: string } = {
-    H: '1100',
+    H0: '1100',
     B: '1101',
     C: '1110',
   };

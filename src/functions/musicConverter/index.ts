@@ -17,9 +17,12 @@ const tools = createToolsObject();
  * H for Hold
  * R0 for repeat no. 0
  */
-const musicToBin = (data: string) => {
+const musicToBin = (data: string, option: boolean) => {
   const toolsName = Object.keys(tools);
-  // const compresseddData = musicCompressor(data)
+  if (option) {
+    data = musicCompressor(data);
+    console.log('compressed data: ', data, '\n');
+  }
   let binaries = data
     .split('-')
     .map((x: string) => {
