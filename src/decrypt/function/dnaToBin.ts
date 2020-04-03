@@ -6,10 +6,13 @@ import { dna } from '../../function/dna';
  * @returns binaries string
  */
 const dnaToBin = (data: string): string => {
-  return data
+  console.log('💻 Convert to Binaries\n');
+  const bin = data
     .split('')
     .map((x: string) => dna[x])
     .join('');
+  console.log('👾 Binaries: ', bin, '\n');
+  return bin;
 };
 
 export { dnaToBin };

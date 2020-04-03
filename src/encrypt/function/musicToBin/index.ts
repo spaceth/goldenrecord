@@ -41,6 +41,7 @@ const checker = (data: string): boolean => {
  * R0 for repeat no. 0
  */
 const musicToBin = (data: string): string => {
+  console.log('💻 Convert to Binaries\n');
   if (checker(data)) {
     data = musicCompressor(data);
     const binaries: string = data
@@ -55,6 +56,7 @@ const musicToBin = (data: string): string => {
         }
       })
       .join('');
+    console.log('👾 Binaries: ', binaries, '\n');
     return binaries;
   }
   return 'error';

@@ -15,6 +15,8 @@ const toolsObject: { [keys: string]: string } = createToolsObject();
 
 /* BEAM ME UP, SCOTTY */
 const binToMusic = (data: string): string => {
+  console.log('🎼 Convert to Pitch');
+
   let notesMap: Map<string, string> = new Map();
   let octavesMap: Map<string, string> = new Map();
   let toolsMap: Map<string, string> = new Map();
@@ -61,8 +63,9 @@ const binToMusic = (data: string): string => {
     .join('')
     .slice(0, -1);
   console.log(data);
-  data = musicUncompressor(data);
-  return data;
+  const music = musicUncompressor(data);
+  console.log('🎵 Music: ', music, '\n');
+  return music;
 };
 
 export { binToMusic };

@@ -11,13 +11,16 @@ import { dna } from '../../function/dna';
  * @returns nucleotide sequences string
  */
 const binToDna = (data: string): string => {
+  console.log('🧬 Convert to NT');
   const dnaArr = Object.keys(dna);
-  return data
+  const nt = data
     .match(/../g)
     .map((x: string): string => {
       return dnaArr[parseInt(x, 2)];
     })
     .join('');
+  console.log('nucleotides: ', nt, '\n');
+  return nt;
 };
 
 export { binToDna };

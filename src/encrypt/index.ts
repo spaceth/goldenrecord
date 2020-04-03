@@ -8,13 +8,13 @@ import { binToDna } from './function/binToDna';
  */
 const encryptor = (data: string): string => {
   console.log('input: ', data, '\n');
-  console.log('💻 Convert to Binaries\n');
-  const bin: string = musicToBin(data);
-  console.log('👾 Binaries: ', bin, '\n');
 
-  console.log('🧬 Convert to NT');
+  const bin: string = musicToBin(data);
+
   const nt: string = binToDna(bin);
-  console.log('nucleotides: ', nt, '\n');
+
+  const compressionSize: number =
+    data.split('-').length * 3 - nt.length;
 
   console.log('✅ Final Result');
   console.log(nt);
@@ -30,6 +30,16 @@ const encryptor = (data: string): string => {
     (nt.match(/G/g) || []).length,
     '\n',
   );
+  console.log(
+    'compressed: ',
+    data.split('-').length * 3,
+    '-',
+    nt.length,
+    '=',
+    compressionSize,
+    'nt\n',
+  );
+
   return nt;
 };
 
