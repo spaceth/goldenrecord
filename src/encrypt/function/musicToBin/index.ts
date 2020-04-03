@@ -56,13 +56,14 @@ const musicToBin = (
             note = x.slice(0, 2);
             octave = x.slice(2, 3);
           }
+          /*NOTE: Full log
           console.log(
             note,
             octave,
             '->',
             notesObject[note],
             octavesObject[octave],
-          );
+          );*/
           const set = notesObject[note] + octavesObject[octave];
           return set;
         } else {

@@ -13,6 +13,10 @@ import { dna } from '../../function/dna';
 const binToDna = (data: string): string => {
   console.log('🧬 Convert to NT');
   const dnaArr = Object.keys(dna);
+  data.match(/../g).forEach((x: string): void => {
+    let freq: number[] = [0, 0, 0, 0];
+    ++freq[parseInt(x, 2)];
+  });
   const nt = data
     .match(/../g)
     .map((x: string): string => {

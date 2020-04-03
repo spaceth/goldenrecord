@@ -19,8 +19,7 @@ const encryptor = (data: string): string => {
   const compressionSize: number =
     data.split('-').length * 3 - nt.length;
 
-  console.log('✅ Final Result');
-  console.log(nt);
+  console.log('✅ Final Result\n', nt);
   console.log('length:', nt.length);
   console.log(
     'A:',

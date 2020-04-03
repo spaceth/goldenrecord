@@ -44,7 +44,7 @@ const binToMusic = (data: string): string => {
         const octaveBin = x.slice(4, 6);
         const noteMusic = notesMap.get(noteBin);
         const octaveMusic = octavesMap.get(octaveBin);
-        console.log(
+        /*NOTE: full log console.log(
           x,
           '->',
           noteBin,
@@ -56,7 +56,7 @@ const binToMusic = (data: string): string => {
           octaveMusic,
           '->',
           noteMusic + octaveMusic,
-        );
+        );*/
         return noteMusic + octaveMusic + '-';
       }
     })

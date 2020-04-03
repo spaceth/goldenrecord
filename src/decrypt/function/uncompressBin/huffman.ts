@@ -15,12 +15,12 @@ const createHuffmanTreeD = data => {
     const newNode = [null, left[1] + right[1], left, right];
     binTree.unshift(newNode);
     binTree.sort(binTreeSort);
-    console.log(
+    /* NOTE: full log console.log(
       'new node created -> left freq:',
       left[1],
       'right freq:',
       right[1],
-    );
+    );*/
   }
 
   console.log('Tree Created!\n', binTree, '\n');

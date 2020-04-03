@@ -1,4 +1,5 @@
 import { dnaToBin } from './function/dnaToBin';
+import { binUncompressor } from './function/uncompressBin/index';
 import { binToMusic } from './function/binToMusic/index';
 
 const decryptor = (data: string): string => {
@@ -6,7 +7,9 @@ const decryptor = (data: string): string => {
 
   const bin: string = dnaToBin(data);
 
-  const music: string = binToMusic(bin);
+  const uncompressedBin = binUncompressor(bin);
+
+  const music: string = binToMusic(uncompressedBin);
 
   console.log('✅ Final Result');
   console.log(music);

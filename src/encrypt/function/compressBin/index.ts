@@ -33,6 +33,7 @@ const generatePrefix = (data: string): string => {
       console.log('prefix added:', x[0], x[1]);
     });
   } */
+
   /* LOL */
 
   console.log('📒 Add Prefixes');
@@ -40,19 +41,23 @@ const generatePrefix = (data: string): string => {
 
   const binTable = createBinTable(data);
   const max = binTable[binTable.length - 1][1].toString(2).length;
+  const size = binTable.length;
 
-  prefix = prefix + max.toString(2).padStart(6, '0');
+  prefix = prefix + size.toString(2).padStart(8, '0');
+  console.log('Add size', size, '->', prefix);
+
+  prefix = prefix + max.toString(2).padStart(8, '0');
   console.log('Add max', max, '->', prefix);
 
   binTable.forEach((x: [string, number]) => {
     prefix = prefix + x[0] + x[1].toString(2).padStart(max, '0');
-    console.log(
+    /*console.log(
       'add prefix:',
       x[0],
       x[1].toString(2).padStart(max, '0'),
-    );
+    );*/
   });
-  console.log('Prefix:', prefix, '\n');
+
   return prefix;
 };
 
@@ -71,18 +76,23 @@ const binCompressor = (data: string): string => {
   let compressedData = data
     .match(/....../g)
     .map((x: string): string => {
-      //console.log(x, '->', huffmanObject[x]);
+      //NOTE: full log console.log(x, '->', huffmanObject[x]);
       return huffmanObject[x];
     })
     .join('');
-  console.log('compress binaries:', compressedData, '\n');
+  console.log('compressed binaries:', compressedData, '\n');
   const prefix = generatePrefix(data);
-  console.log(
-    '🎫 Add Prefix to String:',
-    prefix + compressedData,
-    '\n',
-  );
-  return prefix + compressedData;
+  let result = prefix + compressedData;
+  console.log('Add Prefix to String:', result);
+  if (result.length % 2 === 1) {
+    console.log('odd length -> label 010 (0+C) at the end');
+    result += '010';
+  } else {
+    result += '11';
+    console.log('even length -> label 11 (G) at the end');
+  }
+  console.log('🗜 compression result:', result, '\n');
+  return result;
 };
 
 export { binCompressor };
