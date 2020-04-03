@@ -7,11 +7,8 @@ import {
 import { musicCompressor } from './musicCompressor';
 
 const notesObject: { [keys: string]: string } = createNotesObject();
-const octavesObject: { [keys: string]: string } = createOctavesObject(
-  2,
-  5,
-);
 const toolsObject: { [keys: string]: string } = createToolsObject();
+let octavesObject: { [keys: string]: string } = {};
 
 const notesKeys: string[] = Object.keys(notesObject);
 const octavesKeys: string[] = Object.keys(octavesObject);
@@ -40,7 +37,11 @@ const checker = (data: string): boolean => {
  * H for Hold
  * R0 for repeat no. 0
  */
-const musicToBin = (data: string): string => {
+const musicToBin = (
+  data: string,
+  [min, max]: [number, number],
+): string => {
+  octavesObject = createOctavesObject(min, max);
   console.log('💻 Convert to Binaries\n');
   if (checker(data)) {
     data = musicCompressor(data);
@@ -48,7 +49,20 @@ const musicToBin = (data: string): string => {
       .split('-')
       .map((x: string): string => {
         if (!toolsKeys.includes(x)) {
-          const [note, octave] = x.split('');
+          let note: string, octave: string;
+          if (x.indexOf('#') === -1) {
+            [note, octave] = x.split('');
+          } else {
+            note = x.slice(0, 2);
+            octave = x.slice(2, 3);
+          }
+          console.log(
+            note,
+            octave,
+            '->',
+            notesObject[note],
+            octavesObject[octave],
+          );
           const set = notesObject[note] + octavesObject[octave];
           return set;
         } else {
@@ -56,7 +70,7 @@ const musicToBin = (data: string): string => {
         }
       })
       .join('');
-    console.log('👾 Binaries: ', binaries, '\n');
+    console.log('\n👾 Binaries: ', binaries, '\n');
     return binaries;
   }
   return 'error';
