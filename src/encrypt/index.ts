@@ -1,6 +1,7 @@
 import { musicToBin } from './function/musicToBin/index';
 import { binCompressor } from './function/compressBin/index';
 import { binToDna } from './function/binToDna';
+import { splitter } from './function/splitter';
 
 /**
  *
@@ -41,6 +42,9 @@ const encryptor = (data: string): string => {
     compressionSize,
     'nt\n',
   );
+
+  const split = splitter(nt);
+  console.log(split, '\n');
 
   return nt;
 };

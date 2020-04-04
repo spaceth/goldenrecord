@@ -83,7 +83,6 @@ const binCompressor = (data: string): string => {
   console.log('compressed binaries:', compressedData, '\n');
   const prefix = generatePrefix(data);
   let result = prefix + compressedData;
-  console.log('Add Prefix to String:', result);
   if (result.length % 2 === 1) {
     console.log('odd length -> label 010 (0+C) at the end');
     result += '010';

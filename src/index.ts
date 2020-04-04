@@ -15,4 +15,4 @@ console.log(encrypted);
 console.log('\n-----------Decrypt-----------');
 console.log(decryptor(encrypted));
 
-//export { encryptor, decryptor };
+export { encryptor, decryptor };
