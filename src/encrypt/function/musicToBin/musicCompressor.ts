@@ -10,7 +10,7 @@ const findSequence = (data: string): string[] => {
   let j: number;
   let same: any = [];
 
-  data = data + '-';
+  if (data[data.length - 1] !== '-') data = data + '-';
   //console.log(data, data.length);
 
   let dataCalc =
@@ -29,7 +29,7 @@ const findSequence = (data: string): string[] => {
         let [count, loc] = strMap.get(str);
         if (j >= loc + i) {
           strMap.set(str, [++count, j]);
-          // console.log('update key', str, j, strMap.get(str));
+          //console.log('update key', str, j, strMap.get(str));
         }
       }
     }
@@ -57,11 +57,11 @@ const findSequence = (data: string): string[] => {
     }
   }
 
-  const compressLength: number[] = same.map(x => x[0]);
+  const compressLength: number[] = same.map((x) => x[0]);
   const indexOfMin: number = compressLength.indexOf(
     Math.min(...compressLength),
   );
-  const minString: string[] = same.map(x => x[1])[indexOfMin];
+  const minString: string[] = same.map((x) => x[1])[indexOfMin];
   //console.log(same.map(x => x[1]));
 
   return minString;
@@ -77,13 +77,16 @@ const transformString = (data: string, key: string): string => {
   if (findSequence(data)) {
     data = data + '-';
     key = key + '-';
-    const subSequence: string = findSequence(data)[0] + '-';
+    let subSequence: string = findSequence(data)[0];
+    if (subSequence[subSequence.length - 1] !== '-')
+      subSequence += '-';
     console.log('subsequence:', subSequence);
     data = data.replace(subSequence, key + '.' + key);
     while (data.indexOf(subSequence) !== -1) {
       data = data.replace(subSequence, key);
     }
     data = data.replace('.', subSequence);
+    //console.log('hello', data);
     data = data.slice(0, -1);
     console.log('result', data);
     return data;

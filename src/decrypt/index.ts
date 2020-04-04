@@ -11,8 +11,6 @@ const decryptor = (data: string): string => {
 
   const music: string = binToMusic(uncompressedBin);
 
-  console.log('✅ Final Result');
-  console.log(music);
   console.log('length:', music.length, '\n');
   return music;
 };

@@ -41,9 +41,20 @@ const musicToBin = (
   data: string,
   [min, max]: [number, number],
 ): string => {
+  console.log(notesObject);
+  console.log(toolsObject);
   octavesObject = createOctavesObject(min, max);
   console.log('💻 Convert to Binaries\n');
   if (checker(data)) {
+    data = data
+      .split('-')
+      .map((x: string): string => {
+        if (x.indexOf('#') !== -1) {
+          return x[0].toLowerCase() + x[2];
+        }
+        return x;
+      })
+      .join('-');
     data = musicCompressor(data);
     const binaries: string = data
       .split('-')
@@ -56,14 +67,14 @@ const musicToBin = (
             note = x.slice(0, 2);
             octave = x.slice(2, 3);
           }
-          /*NOTE: Full log
+          //NOTE: Full log
           console.log(
             note,
             octave,
             '->',
             notesObject[note],
             octavesObject[octave],
-          );*/
+          );
           const set = notesObject[note] + octavesObject[octave];
           return set;
         } else {

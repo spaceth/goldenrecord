@@ -9,7 +9,7 @@ import 'mocha';
 describe('Create Notes Object', () => {
   it('should return the right data set', () => {
     const result = createNotesObject();
-    expect(result['C#']).to.equal('0001');
+    expect(result['c']).to.equal('0001');
     expect(result['G']).to.equal('0111');
   });
 });

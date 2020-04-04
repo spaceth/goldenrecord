@@ -37,13 +37,31 @@ const splitter = (data: string): string[] => {
 
   for (i = 1; i < splitArr.length; i++) {
     splitArr[i] =
-      splitArr[i] +
       splitArr[i - 1]
-        .substring(0, 20)
+        .substring(splitArr[i - 1].length - 20)
         .split('')
         .reverse()
-        .join('');
+        .map((x: string) => {
+          const dna = {
+            A: 'T',
+            T: 'A',
+            C: 'G',
+            G: 'C',
+          };
+          return dna[x];
+        })
+        .join('') + splitArr[i];
   }
+
+  console.log('\n');
+  splitArr.forEach((x) => {
+    console.log(
+      'C:',
+      ((x.match(/C/g).length / x.length) * 100).toFixed(2),
+      'G:',
+      ((x.match(/G/g).length / x.length) * 100).toFixed(2),
+    );
+  });
 
   console.log('');
   return splitArr;

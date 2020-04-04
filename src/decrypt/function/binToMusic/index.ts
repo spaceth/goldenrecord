@@ -8,8 +8,8 @@ import { musicUncompressor } from './musicUncompressor';
 
 const notesObject: { [keys: string]: string } = createNotesObject();
 const octavesObject: { [keys: string]: string } = createOctavesObject(
-  2,
-  5,
+  3,
+  6,
 );
 const toolsObject: { [keys: string]: string } = createToolsObject();
 
@@ -42,8 +42,11 @@ const binToMusic = (data: string): string => {
       } else {
         const noteBin = x.slice(0, 4);
         const octaveBin = x.slice(4, 6);
-        const noteMusic = notesMap.get(noteBin);
+        let noteMusic = notesMap.get(noteBin);
         const octaveMusic = octavesMap.get(octaveBin);
+        if (noteMusic[0] === noteMusic[0].toLowerCase()) {
+          noteMusic = noteMusic[0].toUpperCase() + '#';
+        }
         /*NOTE: full log console.log(
           x,
           '->',

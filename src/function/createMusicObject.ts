@@ -25,16 +25,16 @@ const createNotesObject = (): { [keys: string]: string } => {
    */
   const notesArr: string[] = [
     'C',
-    'C#',
+    'c',
     'D',
-    'D#',
+    'd',
     'E',
     'F',
-    'F#',
+    'f',
     'G',
-    'G#',
+    'g',
     'A',
-    'A#',
+    'a',
     'B',
   ];
 
@@ -42,9 +42,7 @@ const createNotesObject = (): { [keys: string]: string } => {
 
   const notesBin: string[] = Object.keys(notesObject).map(
     (x: string) => {
-      return parseInt(x)
-        .toString(2)
-        .padStart(4, '0');
+      return parseInt(x).toString(2).padStart(4, '0');
     },
   );
 
@@ -84,13 +82,17 @@ const createToolsObject = () => {
 
   /* TEMPORARY, I HOPE HOPE HOPE */
 
-  let tools: { [keys: string]: string } = {
-    H0: '110000',
-  };
+  let tools: { [keys: string]: string } = {};
 
   Array.from(Array(4).keys()).forEach((x: number) => {
-    const head = '1111';
-    tools[`R${x}`] = head + x.toString(2).padStart(2, '0');
+    const hold = '1100';
+    tools[`H${x}`] = hold + x.toString(2).padStart(2, '0');
+    const stop = '1101';
+    tools[`S${x}`] = stop + x.toString(2).padStart(2, '0');
+    const util = '1110';
+    tools[`U${x}`] = util + x.toString(2).padStart(2, '0');
+    const repeat = '1111';
+    tools[`R${x}`] = repeat + x.toString(2).padStart(2, '0');
   });
 
   return tools;
