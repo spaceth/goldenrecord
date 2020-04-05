@@ -33,7 +33,7 @@ const decodePrefix = (data: string): [any, number] => {
     .map((x: string): [string, number] => {
       const bin = x.slice(0, 6);
       const freq = parseInt(x.substr(x.length - max), 2);
-      console.log(x, '->', bin, ':', freq);
+      // console.log(x, '->', bin, ':', freq);
       return [bin, freq];
     });
   console.log('');

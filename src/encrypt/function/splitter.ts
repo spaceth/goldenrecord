@@ -6,7 +6,6 @@ const splitter = (data: string): string[] => {
   const splitLength: number = Math.floor(length / size);
 
   let i: number;
-  let x: string;
   let leftOver: number = length % size;
   let temp: string = '';
   let splitArr: string[] = [];

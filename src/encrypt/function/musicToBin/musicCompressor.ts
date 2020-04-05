@@ -73,14 +73,13 @@ const findSequence = (data: string): string[] => {
  * @param {string} key replacement key
  */
 const transformString = (data: string, key: string): string => {
-  console.log('key:', key);
   if (findSequence(data)) {
     data = data + '-';
     key = key + '-';
     let subSequence: string = findSequence(data)[0];
     if (subSequence[subSequence.length - 1] !== '-')
       subSequence += '-';
-    console.log('subsequence:', subSequence);
+    console.log('key:', key, 'subsequence:', subSequence);
     data = data.replace(subSequence, key + '.' + key);
     while (data.indexOf(subSequence) !== -1) {
       data = data.replace(subSequence, key);
@@ -88,7 +87,7 @@ const transformString = (data: string, key: string): string => {
     data = data.replace('.', subSequence);
     //console.log('hello', data);
     data = data.slice(0, -1);
-    console.log('result', data);
+    //console.log('result', data);
     return data;
   }
   console.log('break: subsequences not found');

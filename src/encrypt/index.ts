@@ -20,8 +20,8 @@ const encryptor = (data: string): string => {
   const compressionSize: number =
     data.split('-').length * 3 - nt.length;
 
-  console.log('✅ Final Result\n', nt);
-  console.log('length:', nt.length);
+  console.log('✅ Final Result:', nt);
+  console.log('\nlength:', nt.length);
   console.log(
     'A:',
     (nt.match(/A/g) || []).length,

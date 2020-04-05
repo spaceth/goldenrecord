@@ -37,7 +37,7 @@ const binToMusic = (data: string): string => {
     .map((x: string) => {
       if (toolsMap.has(x)) {
         const data = toolsMap.get(x);
-        console.log(x, ':', data);
+        // console.log(x, ':', data);
         return data + '-';
       } else {
         const noteBin = x.slice(0, 4);

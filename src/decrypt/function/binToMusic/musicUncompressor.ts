@@ -37,7 +37,7 @@ const musicUncompressor = (data: any): string => {
     let count: number = 0;
     data = data.map((x: string): string => {
       if (x === i) {
-        console.log(x, '->', keysObject[x].slice(0, -1));
+        //console.log(x, '->', keysObject[x].slice(0, -1));
         count++;
         return count <= 2 ? '' : keysObject[x].slice(0, -1);
       } else return x;
@@ -54,21 +54,6 @@ const musicUncompressor = (data: any): string => {
   // console.log(keysObject);
   return data;
 };
-
-// E4-H0-G4-f4-U2-H0-G4-C4-U2-H0-G4-E4-B4-G4-E4-D4-
-// E5-D5-U2-H0-B4-C5-U2-H0-B4-A4-U2-H1-
-// R1-G4-H0-G4-A4-U2-G4-
-// G4-G4-A4-D5-H0-U0-U2-H0-B4-H0-U2-H1-
-
-// E4-H0-G4-F#4-U2-H0-G4-C4-U2-H0-G4-E4-B4-G4-E4-D4-
-// E5-D5-U2-H0-B4-C5-U2-H0-B4-A4-U2-H1-
-// R1-G4-H0-G4-A4-U2-G4-
-// G4-G4-A4-D5-H0-U0-U2-H0-B4-H0-U2-H1-
-
-// E4-H0-G4-F#4-U2-H0-G4-C4-U2-H0-G4-E4-B4-G4-E4-D4-
-// E5-D5-U2-H0-B4-C5-U2-H0-B4-A4-U2-H1-R2-
-// R1-G4-H0-G4-A4-U2-G4-
-// G4-G4-A4-D5-H0-U0-U2-H0-B4-H0-U2-H1-
 
 /* FLY ME TO THE MOON */
 
