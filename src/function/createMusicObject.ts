@@ -82,17 +82,36 @@ const createToolsObject = () => {
 
   /* TEMPORARY, I HOPE HOPE HOPE */
 
-  let tools: { [keys: string]: string } = {};
+  /* VERSION 1 */
+  // let tools: { [keys: string]: string } = {}
+  // Array.from(Array(4).keys()).forEach((x: number) => {
+  //   const hold = '1100';
+  //   tools[`H${x}`] = hold + x.toString(2).padStart(2, '0');
+  //   const stop = '1101';
+  //   tools[`S${x}`] = stop + x.toString(2).padStart(2, '0');
+  //   const util = '1110';
+  //   tools[`U${x}`] = util + x.toString(2).padStart(2, '0');
+  //   const repeat = '1111';
+  //   tools[`R${x}`] = repeat + x.toString(2).padStart(2, '0');
+  // });
+  /* VERSION 2 */
+
+  let tools: { [keys: string]: string } = {
+    H0: '110000', // 1/2 (U0)
+    H1: '110001', // 1
+    S0: '110010', // 16th note
+    S1: '110011', // 8th note
+    U2: '110100', // long (L)
+  };
 
   Array.from(Array(4).keys()).forEach((x: number) => {
-    const hold = '1100';
-    tools[`H${x}`] = hold + x.toString(2).padStart(2, '0');
-    const stop = '1101';
-    tools[`S${x}`] = stop + x.toString(2).padStart(2, '0');
-    const util = '1110';
-    tools[`U${x}`] = util + x.toString(2).padStart(2, '0');
+    const repeat1 = '1110';
+    tools[`R${x}`] = repeat1 + x.toString(2).padStart(2, '0');
+  });
+
+  Array.from(Array(4).keys()).forEach((x: number) => {
     const repeat = '1111';
-    tools[`R${x}`] = repeat + x.toString(2).padStart(2, '0');
+    tools[`R${x + 4}`] = repeat + x.toString(2).padStart(2, '0');
   });
 
   return tools;

@@ -72,7 +72,10 @@ const findSequence = (data: string): string[] => {
  * @param {string} data input data in form of music pitches string (note-octave)
  * @param {string} key replacement key
  */
-const transformString = (data: string, key: string): string => {
+const transformString = (
+  data: string,
+  key: string,
+): [string, string] => {
   if (findSequence(data)) {
     data = data + '-';
     key = key + '-';
@@ -80,18 +83,15 @@ const transformString = (data: string, key: string): string => {
     if (subSequence[subSequence.length - 1] !== '-')
       subSequence += '-';
     console.log('key:', key, 'subsequence:', subSequence);
-    data = data.replace(subSequence, key + '.' + key);
-    while (data.indexOf(subSequence) !== -1) {
-      data = data.replace(subSequence, key);
-    }
-    data = data.replace('.', subSequence);
+    //console.log(data.split(subSequence));
+    data = data.split(subSequence).join(key);
     //console.log('hello', data);
     data = data.slice(0, -1);
     //console.log('result', data);
-    return data;
+    return [data, subSequence];
   }
   console.log('break: subsequences not found');
-  return data;
+  return ['nf', 'nf'];
 };
 
 const musicCompressor = (data: string): string => {
@@ -100,8 +100,17 @@ const musicCompressor = (data: string): string => {
     (x: string) => x.indexOf('R') !== -1,
   );
   console.log('🔑 Compressing Music');
-  keys.forEach((x: string) => (data = transformString(data, x)));
-  console.log('Compressed: ', data);
+  keys.forEach((x: string) => {});
+  for (let x of keys) {
+    let result = transformString(data, x);
+    if (result[0] !== 'nf') {
+      let substring = result[1];
+      //console.log(substring);
+      data = result[1] + x + '-' + result[0];
+    } else break;
+    //console.log(data);
+  }
+  console.log('\nCompressed: ', data);
   console.log('🔒 Done!\n');
   return data;
 };

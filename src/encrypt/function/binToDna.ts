@@ -25,7 +25,7 @@ const binToDna = (data: string): string => {
   binCount.sort((x: [number, string], y: [number, string]) => {
     return x[0] - y[0];
   });
-  console.log('\ncount:', ...binCount, '\n');
+  //console.log('\ncount:', ...binCount, '\n');
 
   let dnaObject = {};
   binCount.forEach(
@@ -39,7 +39,7 @@ const binToDna = (data: string): string => {
     })
     .join('');
 
-  console.log('create header:', header, '\n');
+  //console.log('create header:', header, '\n');
 
   const nt = data
     .match(/../g)

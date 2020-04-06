@@ -43,8 +43,8 @@ const encryptor = (data: string): string => {
     'nt\n',
   );
 
-  const split = splitter(nt);
-  console.log(split, '\n');
+  //const split = splitter(nt);
+  //console.log(split, '\n');
 
   return nt;
 };

@@ -31,7 +31,7 @@ const binToMusic = (data: string): string => {
     toolsMap.set(value, key);
   }
 
-  console.log(data);
+  //console.log(data);
   data = data
     .match(/....../g)
     .map((x: string) => {
