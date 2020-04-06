@@ -90,14 +90,14 @@ const binCompressor = (data: string): string => {
   console.log('compressed binaries:', compressedData, '\n');
   const prefix = generatePrefix(data);
   let result = prefix + compressedData;
-  if (result.length % 2 === 1) {
-    console.log('odd length -> label 001 (0+C) at the end');
-    result += '001';
-  } else {
-    result += '11';
-    console.log('even length -> label 11 (G) at the end');
-  }
-  console.log('🗜 compression result:', result, '\n');
+  // if (result.length % 2 === 1) {
+  //   console.log('odd length -> label 001 (0+C) at the end');
+  //   result += '001';
+  // } else {
+  //   result += '11';
+  //   console.log('even length -> label 11 (G) at the end');
+  // }
+  // console.log('🗜 compression result:', result, '\n');
   return result;
 };
 

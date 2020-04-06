@@ -602,6 +602,11 @@ readdirp@~3.2.0:
   dependencies:
     picomatch "^2.0.4"
 
+reedsolomon@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/reedsolomon/-/reedsolomon-1.0.0.tgz#5aeeafaad8ba5603647b5a430866ff6391640e3f"
+  integrity sha1-Wu6vqti6VgNke1pDCGb/Y5FkDj8=
+
 require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
