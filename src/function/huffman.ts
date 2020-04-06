@@ -5,10 +5,32 @@ const binTreeSort = (
   return a[1] - b[1];
 };
 
-const createHuffmanTreeD = data => {
-  let binTree: any = [...data];
+const createBinTable = (data: string): any => {
+  let binMap: Map<string, number> = new Map();
+  let max: number = 1;
+  data.match(/....../g).forEach((x: string) => {
+    if (!binMap.has(x)) {
+      binMap.set(x, 1);
+    } else {
+      let count: number = binMap.get(x);
+      if (max < count + 1) max = count + 1;
+      binMap.set(x, count + 1);
+    }
+  });
+  //binMap.set('-', max + 1);
+  let arr = Array.from(binMap).sort(binTreeSort);
+  return arr;
+};
 
-  console.log('🌲 Creating Huffman Tree Decode');
+const createFrequenciesTable = (data: string) => {
+  console.log('📊 Create Frequencies Table');
+  let table: [string, number][] = createBinTable(data);
+  console.log(table, '\n');
+  return table;
+};
+
+const createHuffmanTree = (binTree) => {
+  console.log('🌲 Creating Huffman Tree');
   while (binTree.length > 1) {
     const left = binTree.shift();
     const right = binTree.shift();
@@ -16,11 +38,11 @@ const createHuffmanTreeD = data => {
     binTree.unshift(newNode);
     binTree.sort(binTreeSort);
     /* NOTE: full log console.log(
-      'new node created -> left freq:',
-      left[1],
-      'right freq:',
-      right[1],
-    );*/
+        'new node created -> left freq:',
+        left[1],
+        'right freq:',
+        right[1],
+      );*/
   }
 
   console.log('Tree Created!\n', binTree, '\n');
@@ -54,10 +76,17 @@ const traverseHuffmanTree = (tree): any[] => {
   return table;
 };
 
-const createHuffmanTableD = (data): any[] => {
-  const huffmanTree = createHuffmanTreeD(data);
+const createHuffmanTable = (data: string): any[] => {
+  let binTree: any = [...createFrequenciesTable(data)];
+  const huffmanTree = createHuffmanTree(binTree);
   const huffmanTable = traverseHuffmanTree(huffmanTree);
   return huffmanTable;
 };
 
-export { createHuffmanTableD };
+const createHuffmanTableD = (data): any[] => {
+  const huffmanTree = createHuffmanTree(data);
+  const huffmanTable = traverseHuffmanTree(huffmanTree);
+  return huffmanTable;
+};
+
+export { createBinTable, createHuffmanTable, createHuffmanTableD };

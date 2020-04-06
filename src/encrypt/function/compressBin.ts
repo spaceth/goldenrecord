@@ -1,4 +1,11 @@
-import { createBinTable, createHuffmanTable } from './huffman';
+import {
+  createBinTable,
+  createHuffmanTable,
+} from '../../function/huffman';
+
+// # huffman prefix
+// bit used to define length - pair
+// original - length - amount
 
 const generatePrefix = (data: string): string => {
   /* data = data.sort(

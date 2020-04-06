@@ -1,5 +1,5 @@
 import { musicToBin } from './function/musicToBin/index';
-import { binCompressor } from './function/compressBin/index';
+import { binCompressor } from './function/compressBin';
 import { binToDna } from './function/binToDna';
 import { splitter } from './function/splitter';
 
@@ -13,9 +13,9 @@ const encryptor = (data: string): string => {
 
   const bin: string = musicToBin(data, [3, 6]);
 
-  const compressedBin = binCompressor(bin);
+  // const compressedBin = binCompressor(bin);
 
-  const nt: string = binToDna(compressedBin);
+  const nt: string = binToDna(bin);
 
   const compressionSize: number =
     data.split('-').length * 3 - nt.length;
