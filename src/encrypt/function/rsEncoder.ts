@@ -20,10 +20,16 @@ function RS(messageLength, errorCorrectionLength) {
 
 const createNumberArray = (data: string) => {
   let arr: any[] = data.match(/.{1,8}/g);
-  arr[arr.length - 1] = arr[arr.length - 1].padEnd(
-    8,
-    arr[arr.length - 1] === '1' ? '0' : '1',
-  );
+  if (arr[arr.length - 1].length !== 8) {
+    arr[arr.length - 1] = arr[arr.length - 1].padEnd(
+      8,
+      arr[arr.length - 1].substring(-1) === '1' ? '0' : '1',
+    );
+  } else {
+    arr.push(
+      arr[arr.length - 1][7] === '1' ? '00000000' : '11111111',
+    );
+  }
   arr = arr.map((x: string): number => {
     return parseInt(x, 2);
   });

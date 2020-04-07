@@ -99,9 +99,11 @@ const createToolsObject = () => {
   let tools: { [keys: string]: string } = {
     H0: '110000', // 1/2 (U0)
     H1: '110001', // 1
-    S0: '110010', // 16th note
-    S1: '110011', // 8th note
-    U2: '110100', // long (L)
+    H2: '110010', // 1
+    H3: '110010', // 1
+    S0: '110100', // 16th note
+    S1: '110101', // 8th note
+    U0: '110110', // long (L)
   };
 
   Array.from(Array(4).keys()).forEach((x: number) => {
@@ -113,6 +115,8 @@ const createToolsObject = () => {
     const repeat = '1111';
     tools[`R${x + 4}`] = repeat + x.toString(2).padStart(2, '0');
   });
+
+  tools[`R8`] = '110111';
 
   return tools;
 };

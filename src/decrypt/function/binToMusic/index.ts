@@ -8,8 +8,8 @@ import { musicUncompressor } from './musicUncompressor';
 
 const notesObject: { [keys: string]: string } = createNotesObject();
 const octavesObject: { [keys: string]: string } = createOctavesObject(
-  3,
-  6,
+  2,
+  5,
 );
 const toolsObject: { [keys: string]: string } = createToolsObject();
 

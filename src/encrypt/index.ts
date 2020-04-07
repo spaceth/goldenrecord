@@ -12,7 +12,7 @@ import { splitter } from './function/splitter';
 const encryptor = (data: string): string => {
   console.log('input: ', data, '\n');
 
-  const bin: string = musicToBin(data, [3, 6]);
+  const bin: string = musicToBin(data, [2, 5]);
 
   //const compressedBin = binCompressor(bin);
   const encodedBin = rsEncoder(bin, 16);
