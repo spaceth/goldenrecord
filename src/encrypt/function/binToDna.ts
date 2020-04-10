@@ -17,7 +17,7 @@ const binToDna = (data: string): string => {
     [0, '10'],
     [0, '11'],
   ];
-  let dna = 'ATCG'.split('');
+  let dna = 'CGAT'.split('');
   //let dnaArr: any = Object.keys(dna);
   data.match(/../g).forEach((x: string): void => {
     ++binCount[parseInt(x, 2)][0];
@@ -46,7 +46,11 @@ const binToDna = (data: string): string => {
     .map((x: string): string => dnaObject[x])
     .join('');
   console.log('header + nucleotides: ', header, '+', nt, '\n');
-  return header + nt;
+
+  let final = header + nt;
+  final = final.match(/.{1,8}/g).join('G');
+
+  return final;
 };
 
 export { binToDna };
