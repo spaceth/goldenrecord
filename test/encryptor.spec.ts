@@ -12,7 +12,7 @@ describe('Full cycle music pitches encryption and decryption', () => {
   });
   it('set 2: should return true', () => {
     const music: string =
-      'G3-G3-A3-H0-G3-H0-C4-H0-B3-H1-G3-G3-A3-H0-G3-H0-D4-H0-C4-H1-G3-G3-G4-H0-E4-H0-C4-H0-B3-H0-A3-H0-F4-F4-E4-H0-C4-H0-D4-H0-C4-H1-H2-C3';
+      'G3-G3-A3-H0-G3-H0-C4-H0-B3-H1-G3-G3-A3-H0-G3-H0-D4-H0-C4-H1-G3-G3-G4-H0-E4-H0-C4-H0-B3-H0-A3-H0-F4-F4-E4-H0-C4-H0-D4-H0-C4-H1-H2';
     const result: string = decryptor(encryptor(music));
     expect(result).to.equal(music);
   });
