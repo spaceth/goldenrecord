@@ -8,41 +8,6 @@ import {
 // original - length - amount
 
 const generatePrefix = (data: string): string => {
-  /* data = data.sort(
-    (a: [string, string], b: [string, string]): number => {
-      return a[1].length - b[1].length;
-    },
-  );
-
-  const num: number = 5;
-  let prefix: string = num.toString(2) + ' ';
-
-  console.log('Add initial number:', num, '->', prefix);
-
-  const min: number = data[0][1].length;
-  const max: number = data[data.length - 1][1].length;
-  let i: number = 0;
-
-  for (i = min; i <= max; i++) {
-    let filterArr = data.filter((x: [string, string]): boolean => {
-      return x[1].length === i;
-    });
-    prefix =
-      prefix + filterArr.length.toString(2).padStart(5, '0') + ' ';
-    console.log(
-      'length label added:',
-      filterArr.length,
-      '->',
-      filterArr.length.toString(2).padStart(5, '0'),
-    );
-    filterArr.forEach((x: [string, string]): void => {
-      prefix = prefix + x[0] + x[1] + ' ';
-      console.log('prefix added:', x[0], x[1]);
-    });
-  } */
-
-  /* LOL */
-
   console.log('📒 Add Prefixes');
   let prefix: string = '';
 
