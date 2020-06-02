@@ -74,7 +74,7 @@ const createOctavesObject = (
   return createObject(octavesArr, octavesBin);
 };
 
-const createToolsObject = () => {
+const createModifiersObject = () => {
   /*
   16-12 -> 4 unused stages
   1100, 1101, 1110, 1111
@@ -96,7 +96,7 @@ const createToolsObject = () => {
   // });
   /* VERSION 2 */
 
-  let tools: { [keys: string]: string } = {
+  let modifiers: { [keys: string]: string } = {
     H0: '110000', // *2
     H1: '110001', // *4
     H2: '110010', // *8
@@ -111,17 +111,21 @@ const createToolsObject = () => {
 
   Array.from(Array(4).keys()).forEach((x: number) => {
     const repeat1 = '1110';
-    tools[`R${x}`] = repeat1 + x.toString(2).padStart(2, '0');
+    modifiers[`R${x}`] = repeat1 + x.toString(2).padStart(2, '0');
   });
 
   Array.from(Array(4).keys()).forEach((x: number) => {
     const repeat = '1111';
-    tools[`R${x + 4}`] = repeat + x.toString(2).padStart(2, '0');
+    modifiers[`R${x + 4}`] = repeat + x.toString(2).padStart(2, '0');
   });
 
-  return tools;
+  return modifiers;
 };
 
-export { createNotesObject, createOctavesObject, createToolsObject };
+export {
+  createNotesObject,
+  createOctavesObject,
+  createModifiersObject,
+};
 
 /* GOODBYE. COME AGAIN SOON. */

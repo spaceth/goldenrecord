@@ -16,4 +16,10 @@ describe('Full cycle music pitches encryption and decryption', () => {
     const result: string = decryptor(encryptor(music));
     expect(result).to.equal(music);
   });
+  it('set 3: should return true', () => {
+    const music: string =
+      'E2-H0-G2-F#2-H0-G2-C2-H1-G2-D2-B2-G2-F#2-D2-E2-H0-G2-F#2-H0-G2-C2-H1-G2-D2-B2-G2-F#2-D2-E2-H0-G2-F#2-H0-G2-C2-H1-G2-D2-B2-G2-F#2-D2-E2-H0-G2-F#2-H0-G2-C2-H1-G2-D2-B2-G2-F#2-D2';
+    const result: string = decryptor(encryptor(music));
+    expect(result).to.equal(music);
+  });
 });

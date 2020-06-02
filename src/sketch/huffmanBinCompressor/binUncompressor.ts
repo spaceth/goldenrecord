@@ -1,4 +1,4 @@
-import { createHuffmanTableD } from '../../function/huffman';
+import { createHuffmanTableD } from './huffman';
 
 /**
  *

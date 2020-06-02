@@ -1,31 +1,33 @@
 import {
   createNotesObject,
   createOctavesObject,
-  createToolsObject,
+  createModifiersObject,
 } from '../../../function/createMusicObject';
 
 import { musicCompressor } from './musicCompressor';
 
 const notesObject: { [keys: string]: string } = createNotesObject();
-const toolsObject: { [keys: string]: string } = createToolsObject();
+const modifiers: {
+  [keys: string]: string;
+} = createModifiersObject();
 let octavesObject: { [keys: string]: string } = {};
 
 const notesKeys: string[] = Object.keys(notesObject);
 const octavesKeys: string[] = Object.keys(octavesObject);
-const toolsKeys: string[] = Object.keys(toolsObject);
+const modifiersKeys: string[] = Object.keys(modifiers);
 
 const checker = (data: string): boolean => {
   const arr = data.split('-').filter((x: string): boolean => {
     return (
       notesKeys.indexOf(x[0]) === -1 &&
       octavesKeys.indexOf(x[1]) === -1 &&
-      toolsKeys.indexOf(x) === -1
+      modifiersKeys.indexOf(x) === -1
     );
   });
   if (arr.length === 0) {
     return true;
   } else {
-    console.log('error', arr);
+    console.error('error', arr);
     return false;
   }
 };
@@ -41,8 +43,7 @@ const musicToBin = (
   data: string,
   [min, max]: [number, number],
 ): string => {
-  console.log(notesObject);
-  console.log(toolsObject);
+  //console.log(data.match(/[A-Ga-g]+(#?)+(\d)/g));
   octavesObject = createOctavesObject(min, max);
   console.log('💻 Convert to Binaries\n');
   if (checker(data)) {
@@ -59,7 +60,7 @@ const musicToBin = (
     const binaries: string = data
       .split('-')
       .map((x: string): string => {
-        if (!toolsKeys.includes(x)) {
+        if (!modifiersKeys.includes(x)) {
           let note: string, octave: string;
           if (x.indexOf('#') === -1) {
             [note, octave] = x.split('');
@@ -78,7 +79,7 @@ const musicToBin = (
           const set = notesObject[note] + octavesObject[octave];
           return set;
         } else {
-          return toolsObject[x];
+          return modifiers[x];
         }
       })
       .join('');

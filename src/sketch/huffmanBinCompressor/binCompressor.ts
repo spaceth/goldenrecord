@@ -1,7 +1,4 @@
-import {
-  createBinTable,
-  createHuffmanTable,
-} from '../../function/huffman';
+import { createBinTable, createHuffmanTable } from './huffman';
 
 // # huffman prefix
 // bit used to define length - pair

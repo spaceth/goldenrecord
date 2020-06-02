@@ -1,4 +1,4 @@
-import { createToolsObject } from '../../../function/createMusicObject';
+import { createModifiersObject } from '../../../function/createMusicObject';
 
 /**
  *
@@ -96,8 +96,10 @@ const transformString = (
 
 const musicCompressor = (data: string): string => {
   data = data + '-X0';
-  const tools: { [keys: string]: string } = createToolsObject();
-  const keys: string[] = Object.keys(tools).filter(
+  const modifiers: {
+    [keys: string]: string;
+  } = createModifiersObject();
+  const keys: string[] = Object.keys(modifiers).filter(
     (x: string) => x.indexOf('R') !== -1,
   );
   console.log('🔑 Compressing Music');
