@@ -9,7 +9,6 @@ Elon: Mars!
  * @returns nucleotide sequences string
  */
 const binToDna = (data: string): string => {
-  let i: number = 0;
   console.log('🧬 Convert to NT');
   let dna: string[] = ['A', 'T', 'C', 'G'];
 

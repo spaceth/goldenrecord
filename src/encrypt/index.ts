@@ -1,6 +1,7 @@
 import { musicToBin } from './function/musicToBin/index';
 import { rsEncoder } from './function/rsEncoder';
 import { binToDna } from './function/binToDna';
+import { binRandomizer } from './function/binRandomizer';
 import { splitter } from './function/splitter';
 
 /**
@@ -15,7 +16,9 @@ const encryptor = (data: string): string => {
 
   const encodedBin = rsEncoder(bin, 16);
 
-  const nt: string = binToDna(encodedBin);
+  const randomizedBin = binRandomizer(encodedBin);
+
+  const nt: string = binToDna(randomizedBin);
 
   const compressionSize: number =
     data.split('-').length * 3 - nt.length;
