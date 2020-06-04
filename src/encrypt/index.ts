@@ -20,8 +20,8 @@ const encryptor = (data: string): string => {
   const start = new Date().getTime();
   let end;
 
-  let s1 = 40398323; //Math.round(Math.random() * 100000000); //52162027 //40398323
-  let s2 = 675273; //Math.round(Math.random() * 100000000); //91106843 //675273
+  let s1 = 9111934; //Math.round(Math.random() * 100000000); //52162027 //40398323
+  let s2 = 20121996; //Math.round(Math.random() * 100000000); //91106843 //675273
   const randomizedBin = binRandomizer(encodedBin, [s1, s2]);
   const nt: string = binToDna(randomizedBin);
 
@@ -50,7 +50,7 @@ const encryptor = (data: string): string => {
     compressionSize,
     'nt\n',
   );
-  console.info(s1, s2, (nt.match(/G/g) || []).length);
+  //console.info(s1, s2, (nt.match(/G/g) || []).length);
 
   //const split = splitter(nt);
   //console.log(split, '\n');

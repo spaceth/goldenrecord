@@ -4,12 +4,12 @@
  * @returns binaries string
  */
 const dnaToBin = (data: string): string => {
-  data = data
-    .match(/.{1,9}/g)
-    .map((el) => {
-      return el.length === 9 ? el.slice(0, -1) : el;
-    })
-    .join('');
+  // data = data
+  //   .match(/.{1,9}/g)
+  //   .map((el) => {
+  //     return el.length === 9 ? el.slice(0, -1) : el;
+  //   })
+  //   .join('');
   console.log(data);
   let i: number = 0;
   let dna = ['A', 'T', 'C', 'G'];

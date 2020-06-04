@@ -18,7 +18,7 @@ const binToDna = (data: string): string => {
     .join('');
 
   let final = nt;
-  final = final.match(/[ATCG]{1,8}/g).join('G');
+  //final = final.match(/[ATCG]{1,8}/g).join('G');
 
   return final;
 };
