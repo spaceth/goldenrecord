@@ -1,4 +1,4 @@
-import { xorshift128plus } from '../../function/xorshift128';
+import { xorshift128plus } from './xorshift128';
 
 const binRandomizer = (bin: string, [s1, s2]) => {
   let binLength: number = bin.length;

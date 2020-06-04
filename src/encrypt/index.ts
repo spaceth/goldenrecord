@@ -1,7 +1,7 @@
 import { musicToBin } from './function/musicToBin/index';
 import { rsEncoder } from './function/rsEncoder';
 import { binToDna } from './function/binToDna';
-import { binRandomizer } from './function/binRandomizer';
+import { binRandomizer } from '../function/binRandomizer';
 import { splitter } from './function/splitter';
 
 //console.log = function () {};
