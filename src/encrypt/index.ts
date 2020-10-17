@@ -3,8 +3,14 @@ import { rsEncoder } from './function/rsEncoder';
 import { binToDna } from './function/binToDna';
 import { binRandomizer } from '../function/binRandomizer';
 import { splitter } from './function/splitter';
+import { DNA } from '../types';
 
 //console.log = function () {};
+
+function countBasePair(nt: string, dna: DNA): number {
+  const pattern = new RegExp(dna, 'g');
+  return (nt.match(pattern) || []).length;
+}
 
 /**
  *
@@ -32,13 +38,13 @@ const encryptor = (data: string): string => {
   console.log('\nlength:', nt.length);
   console.log(
     'A:',
-    (nt.match(/A/g) || []).length,
+    countBasePair(nt, 'A'),
     ' T:',
-    (nt.match(/T/g) || []).length,
+    countBasePair(nt, 'T'),
     ' C:',
-    (nt.match(/C/g) || []).length,
+    countBasePair(nt, 'C'),
     ' G:',
-    (nt.match(/G/g) || []).length,
+    countBasePair(nt, 'G'),
     '\n',
   );
   console.log(
